@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: #0c1b2a; /* adapt to your dark blue */
+  color: white;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 120px 60px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+.cta {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+
+.contact {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+a {
+  color: #4da6ff; /* adapt to your accent */
+  text-decoration: none;
+}
