@@ -1,49 +1,199 @@
+/* =========================
+   BASE
+========================= */
+
 body {
   margin: 0;
-  overflow: hidden;
   font-family: 'Montserrat', sans-serif;
-  background: #0c1b2a; /* adapt to your dark blue */
-  color: white;
+  background: #080E2A;
+  color: #E5E8EF;
+  overflow: hidden;
+  position: relative;
 }
+
+/* =========================
+   BACKGROUND IMAGE LAYER
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("./assets/images/Image_20251011_121030.jpg") center/cover no-repeat;
+  opacity: 0.25; /* adjust 0.15–0.35 if needed */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   CANVAS (NETWORK ANIMATION)
+========================= */
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  padding: 120px 60px;
+/* =========================
+   NAVBAR / LOGO
+========================= */
+
+header {
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  z-index: 3;
 }
+
+.logo {
+  height: 50px;
+  filter: drop-shadow(0 0 12px rgba(74,168,255,0.6));
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+/* =========================
+   HEADLINES
+========================= */
 
 h1 {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 700;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-bottom: 25px;
 }
 
-p {
+.highlight-blue {
+  color: #4AA8FF;
+}
+
+.subheadline {
   font-size: 22px;
   font-weight: 300;
+  color: #E5E8EF;
   margin-bottom: 40px;
 }
 
-.cta {
-  font-size: 24px;
-  font-weight: 500;
+.build {
+  font-size: 26px;
+  font-weight: 600;
+  color: #E5E8EF;
+  margin-bottom: 50px;
+}
+
+/* =========================
+   CONTACT BLOCK
+========================= */
+
+.contact-block {
   margin-bottom: 60px;
 }
 
-.contact {
+.name {
   font-size: 14px;
+  color: #E5E8EF;
   opacity: 0.8;
+  margin-bottom: 10px;
 }
 
-a {
-  color: #4da6ff; /* adapt to your accent */
+.email {
+  color: #4AA8FF;
+  font-size: 14px;
   text-decoration: none;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
+.partners {
+  font-weight: 600;
+  color: #E5E8EF;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2C88D9, #4AA8FF);
+  padding: 14px 28px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(74,168,255,0.6);
+}
+
+.btn-outline {
+  border: 1px solid #4AA8FF;
+  padding: 14px 28px;
+  border-radius: 30px;
+  color: #4AA8FF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(74,168,255,0.1);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   FADE IN ANIMATION
+========================= */
+
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
+  font-size: 12px;
+  color: #E5E8EF;
+  opacity: 0.5;
+  z-index: 3;
 }

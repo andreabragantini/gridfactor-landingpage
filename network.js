@@ -60,8 +60,8 @@ function connectNodes() {
       let distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < 120) {
-        ctx.strokeStyle = "rgba(77,166,255,0.15)";
-        ctx.lineWidth = 1;
+		ctx.strokeStyle = "rgba(74,168,255,0.15)";
+		ctx.fillStyle = "#67C4FF";
         ctx.beginPath();
         ctx.moveTo(nodes[a].x, nodes[a].y);
         ctx.lineTo(nodes[b].x, nodes[b].y);
