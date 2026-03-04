@@ -7,12 +7,12 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: #080E2A;
   color: #E5E8EF;
-  overflow: hidden;
   position: relative;
+  min-height: 100vh;
 }
 
 /* =========================
-   BACKGROUND IMAGE LAYER
+   BACKGROUND IMAGE
 ========================= */
 
 body::before {
@@ -20,13 +20,13 @@ body::before {
   position: fixed;
   inset: 0;
   background: url("./assets/images/Image_20251011_121030.jpg") center/cover no-repeat;
-  opacity: 0.25; /* adjust 0.15–0.35 if needed */
+  opacity: 0.18; /* slightly reduced */
   z-index: 0;
   pointer-events: none;
 }
 
 /* =========================
-   CANVAS (NETWORK ANIMATION)
+   CANVAS
 ========================= */
 
 canvas {
@@ -37,47 +37,48 @@ canvas {
 }
 
 /* =========================
-   NAVBAR / LOGO
+   NAVBAR
 ========================= */
 
 header {
   position: fixed;
-  top: 30px;
-  left: 50px;
+  top: 25px;
+  left: 40px;
   z-index: 3;
 }
 
 .logo {
-  height: 50px;
-  filter: drop-shadow(0 0 12px rgba(74,168,255,0.6));
+  height: 75px;
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(74,168,255,0.5));
 }
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-left: 80px;
+  padding: 140px 80px 100px 80px;
   position: relative;
   z-index: 2;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 850px;
 }
 
 /* =========================
-   HEADLINES
+   TYPOGRAPHY
 ========================= */
 
 h1 {
-  font-size: 48px;
+  font-size: 42px; /* slightly reduced */
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .highlight-blue {
@@ -85,49 +86,76 @@ h1 {
 }
 
 .subheadline {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
-  color: #E5E8EF;
-  margin-bottom: 40px;
-}
-
-.build {
-  font-size: 26px;
-  font-weight: 600;
-  color: #E5E8EF;
   margin-bottom: 50px;
 }
 
-/* =========================
-   CONTACT BLOCK
-========================= */
-
-.contact-block {
+.build {
+  font-size: 24px;
+  font-weight: 600;
   margin-bottom: 60px;
 }
 
-.name {
-  font-size: 14px;
-  color: #E5E8EF;
-  opacity: 0.8;
-  margin-bottom: 10px;
+/* =========================
+   FOUNDER SECTION
+========================= */
+
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
 }
 
-.email {
-  color: #4AA8FF;
-  font-size: 14px;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 15px;
+.photo-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 
-.email:hover {
-  text-decoration: underline;
+.photo-glow {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: -15px;
+  left: -15px;
+  background: radial-gradient(circle, rgba(74,168,255,0.35) 0%, rgba(74,168,255,0) 70%);
+  filter: blur(10px);
+  animation: glowFloat 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.founder-photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #4AA8FF;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s ease;
+}
+
+.founder-photo:hover {
+  box-shadow: 0 0 20px rgba(74,168,255,0.6);
+  transform: scale(1.05);
+}
+
+.linkedin svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  transition: 0.3s ease;
+}
+
+.linkedin:hover svg {
+  transform: scale(1.2);
 }
 
 .partners {
   font-weight: 600;
-  color: #E5E8EF;
+  margin-bottom: 50px;
 }
 
 /* =========================
@@ -139,29 +167,28 @@ h1 {
   gap: 20px;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #2C88D9, #4AA8FF);
+.btn-primary,
+.btn-outline {
   padding: 14px 28px;
   border-radius: 30px;
-  color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2C88D9, #4AA8FF);
+  color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(74,168,255,0.6);
+  box-shadow: 0 0 25px rgba(74,168,255,0.5);
 }
 
 .btn-outline {
   border: 1px solid #4AA8FF;
-  padding: 14px 28px;
-  border-radius: 30px;
   color: #4AA8FF;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
@@ -170,30 +197,86 @@ h1 {
 }
 
 /* =========================
-   FADE IN ANIMATION
-========================= */
-
-.fade-in {
-  animation: fadeIn 1.5s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* =========================
    FOOTER
 ========================= */
 
 footer {
-  position: fixed;
-  bottom: 20px;
-  left: 50px;
+  position: relative;
+  padding: 40px 80px;
   font-size: 12px;
-  color: #E5E8EF;
   opacity: 0.5;
-  z-index: 3;
+  z-index: 2;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes glowFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  header {
+    left: 20px;
+    top: 20px;
+  }
+
+  .logo {
+    height: 55px;
+  }
+
+  .hero {
+    padding: 120px 25px 80px 25px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .subheadline {
+    font-size: 18px;
+  }
+
+  .build {
+    font-size: 20px;
+  }
+
+  .founder {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .photo-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .founder-photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer {
+    padding: 30px 25px;
+    text-align: center;
+  }
+
 }
